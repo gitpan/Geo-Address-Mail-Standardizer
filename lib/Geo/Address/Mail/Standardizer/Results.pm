@@ -17,7 +17,8 @@ has 'changed' => (
 
 has 'standardized_address' => (
     is => 'rw',
-    isa => 'Geo::Address::Mail'
+    isa => 'Geo::Address::Mail',
+    predicate => 'has_standardized_address'
 );
 
 __PACKAGE__->meta->make_immutable;
@@ -71,6 +72,10 @@ Returns an array of field names that were changed as part of the standardization
 =head2 get_changed($name)
 
 Returns the value of the specified field if it was changed.
+
+=head2 has_standardized_address
+
+Returns true if a standardized address has been set for this results.
 
 =head2 is_changed($name)
 
